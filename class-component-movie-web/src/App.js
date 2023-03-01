@@ -6,8 +6,10 @@ export default class App extends React.Component {
     isLoading: true,
     movies: [],
   };
-  getMovies = () => {
-    const movies = axios.get("https://yts-proxy.now.sh/list_movie.json");
+
+  // async - 함수를 기다린다 axios가 끝날 때까지
+  getMovies = async () => {
+    const movies = await axios.get("https://yts-proxy.now.sh/list_movie.json");
   };
   componentDidMount() {
     this.getMovies();
